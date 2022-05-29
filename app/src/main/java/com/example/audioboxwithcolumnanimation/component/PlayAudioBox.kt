@@ -13,13 +13,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.audioboxwithcolumnanimation.R
 
 @Composable
 internal fun PlayAudioBox(
-    randomValues: List<Int>
+    randomValues: List<Int>,
+    animationEndPadding: Dp
 ) {
 
     val isPlayingUi = rememberSaveable{ mutableStateOf(false) }
@@ -71,14 +73,13 @@ internal fun PlayAudioBox(
             modifier =
             Modifier
                 .align(Alignment.CenterEnd)
-                .padding(end = 10.dp)
+                .padding(end = animationEndPadding)
                 .sizeIn(
                     minWidth = 70.dp,
                     maxWidth = 70.dp,
                     minHeight = 20.dp,
                     maxHeight = 20.dp,
                 ),
-            columnNumber = randomValues.size,
             randomValues = randomValues
         ) {
 

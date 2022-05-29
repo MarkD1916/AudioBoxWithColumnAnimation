@@ -111,7 +111,7 @@ fun ColumnAnimation(
             val canvasHeight = size.height
             var stepSpace = 0f
 
-            for (i in 0 until columnNumber-1) {
+            randomValues.forEachIndexed { index, randomInt ->
 
                 stepSpace += canvasWidth / columnNumber
                 drawLine(
@@ -121,7 +121,7 @@ fun ColumnAnimation(
                         canvasHeight
                     ),
                     end = Offset(
-                        stepSpace, if (isFreeze) animations[i].value else height * (randomValues[i].toFloat()/100)),
+                        stepSpace, if (isFreeze) animations[index].value else height * (randomInt.toFloat()/100)),
                     strokeWidth = canvasWidth/columnNumber
                 )
             }

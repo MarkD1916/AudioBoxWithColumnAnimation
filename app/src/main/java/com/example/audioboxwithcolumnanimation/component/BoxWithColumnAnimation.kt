@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.toSize
 @Composable
 fun BoxWithColumnAnimation(
     modifier: Modifier,
-    columnNumber: Int,
     isFreeze: Boolean = true,
     randomValues: List<Int>,
     content: @Composable BoxScope.() -> Unit

@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.audioboxwithcolumnanimation.ui.theme.AudioBoxWithColumnAnimationTheme
 import com.ill.jp.assignments.screens.questions.component.PlayAudioBox
 import kotlin.random.Random
@@ -23,14 +24,16 @@ class MainActivity : ComponentActivity() {
         setContent {
             AudioBoxWithColumnAnimationTheme {
                 Box(modifier = Modifier.fillMaxSize()) {
-                    val randomValues = List(2) {
+                    val columnNumber = 155
+                    val animationBoxEndPadding = 10.dp
+                    val randomValues = List(columnNumber) {
                         Random.nextInt(
                             5,
                             85
                         )
                     }
                     Column(modifier = Modifier.align(Alignment.Center)) {
-                        PlayAudioBox(randomValues)
+                        PlayAudioBox(randomValues,animationBoxEndPadding)
                     }
 
                 }
